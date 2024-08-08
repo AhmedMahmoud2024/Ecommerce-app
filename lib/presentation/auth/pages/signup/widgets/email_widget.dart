@@ -10,10 +10,10 @@ class EmailFieldWidget extends StatelessWidget{
   }
 
 }
- Widget _emailFieldWidget(BuildContext context){
+Widget _emailFieldWidget (BuildContext context){
   return const TextField(
-    decoration: InputDecoration(
-      hintText: "Enter Email"
+    decoration: const InputDecoration(
+        hintText: 'Email Address'
     ),
   );
- }
+}

@@ -1,17 +1,17 @@
  import 'package:flutter/cupertino.dart';
 
-class SigninTextWidget extends StatelessWidget{
-  const SigninTextWidget({super.key});
+class SignupTextWidget extends StatelessWidget{
+  const SignupTextWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-  return  _signinText(context);
+  return  signupText(context);
   }
 
 }
- Widget _signinText (BuildContext context){
+ Widget signupText (BuildContext context){
   return const Text(
-    "Sign In",
+    "Sign Up",
     style: TextStyle(
       fontSize: 32,
       fontWeight: FontWeight.bold

@@ -1,5 +1,8 @@
 
+import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/continue_button.dart';
+import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/create_account_widget.dart';
 import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/email_field_widget.dart';
+import 'package:ecommerce_app/presentation/auth/pages/signup/widgets/password_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +22,14 @@ class SigninPage extends StatelessWidget{
     child: Column(
       children: [
        SigninTextWidget(),
-      SizedBox(height: 20,),
-        EmailFieldWidget()
+       SizedBox(height: 20,),
+        EmailFieldWidget(),
+        SizedBox(height: 20,),
+        PasswordFieldWidget(),
+        SizedBox(height: 20,),
+        ContinueButtonWidget(),
+        SizedBox(height: 20,),
+        CreateAccountWidget()
       ],
     ),
   ),

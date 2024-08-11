@@ -24,7 +24,7 @@ class SigninCreateAccountWidget extends StatelessWidget{
          TextSpan(
            text: "Signin",
            recognizer: TapGestureRecognizer()..onTap =() {
-         AppNavigator.push(context,const SigninPage());
+         AppNavigator.push(context, SigninPage());
                 } ,
              style: const TextStyle(
                  fontWeight: FontWeight.bold

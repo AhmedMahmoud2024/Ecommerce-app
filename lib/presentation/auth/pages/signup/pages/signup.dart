@@ -17,7 +17,7 @@ class SignupPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
         appBar: BasicAppbar(),
         body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget{
             children: [
             SignupTextWidget(),
                SizedBox(height: 20,),
-              FirstNameWidget(),
+                FirstNameWidget(),
               SizedBox(height: 20,),
               LastNameWidget(),
               SizedBox(height: 20,),

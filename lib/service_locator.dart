@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/domain/use_cases/get_ages.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/data_sources/auth_firebase_service.dart';
@@ -23,5 +24,8 @@ Future<void> initializeDependencies() async{
   );
   sl.registerSingleton<SigninUseCase>(
       SigninUseCase()
+  );
+  sl.registerSingleton<GetAgesUseCase>(
+      GetAgesUseCase()
   );
 }

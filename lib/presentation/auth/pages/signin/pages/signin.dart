@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 import '../widgets/sign_in_text_widget.dart';
 
 class SigninPage extends StatelessWidget{
-  const SigninPage({super.key});
+   SigninPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
   body: Padding(
     padding: EdgeInsets.symmetric(
       horizontal: 16,

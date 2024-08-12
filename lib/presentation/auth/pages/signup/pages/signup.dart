@@ -11,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/appbar/app_bar.dart';
+import '../widgets/continue_button.dart';
 
 class SignupPage extends StatelessWidget{
   const SignupPage({super.key});
@@ -37,7 +38,7 @@ class SignupPage extends StatelessWidget{
               SizedBox(height: 20,),
               PasswordFieldWidget(),
               SizedBox(height: 20,),
-              ContinueButtonWidget(),
+              SignUpContinueButtonWidget(),
               SizedBox(height: 20,),
               SigninCreateAccountWidget()
             ],

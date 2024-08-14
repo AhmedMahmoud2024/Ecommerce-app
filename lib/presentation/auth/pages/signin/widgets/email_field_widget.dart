@@ -2,18 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EmailFieldWidget extends StatelessWidget{
-  const EmailFieldWidget({super.key});
+   EmailFieldWidget({super.key});
 
+  final TextEditingController _emailCon = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  _emailFieldWidget(context);
   }
 
+  Widget _emailFieldWidget(BuildContext context){
+    return  TextField(
+      controller: _emailCon,
+      decoration: const InputDecoration(
+          hintText: "Enter Email"
+      ),
+    );
+  }
 }
- Widget _emailFieldWidget(BuildContext context){
-  return const TextField(
-    decoration: InputDecoration(
-      hintText: "Enter Email"
-    ),
-  );
- }

@@ -25,9 +25,9 @@ class SigninPage extends StatelessWidget{
        SizedBox(height: 20,),
         EmailFieldWidget(),
         SizedBox(height: 20,),
-        PasswordFieldWidget(),
-        SizedBox(height: 20,),
-        ContinueButtonWidget(),
+        // PasswordFieldWidget(),
+        // SizedBox(height: 20,),
+        SigninContinueButtonWidget(),
         SizedBox(height: 20,),
         CreateAccountWidget()
       ],

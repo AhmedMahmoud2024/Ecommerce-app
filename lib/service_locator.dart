@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/domain/use_cases/get_ages.dart';
+import 'package:ecommerce_app/domain/use_cases/send_password_reset_email.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/data_sources/auth_firebase_service.dart';
@@ -28,4 +29,9 @@ Future<void> initializeDependencies() async{
   sl.registerSingleton<GetAgesUseCase>(
       GetAgesUseCase()
   );
+
+  sl.registerSingleton<SendPasswordResetEmailUseCase>(
+      SendPasswordResetEmailUseCase()
+  );
+
 }

@@ -22,7 +22,7 @@ class SigninContinueButtonWidget extends StatelessWidget{
        AppNavigator.push(
            context,
            EnterPasswordPage(
-             signinReq: UserSigninReq(
+             user: UserSigninReq(
                email: _emailCon.text,
              ),
            )

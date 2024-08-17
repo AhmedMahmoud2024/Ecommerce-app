@@ -13,9 +13,9 @@ import '../forgot_password/forgot_password.dart';
 
 
 class EnterPasswordPage extends StatelessWidget {
-  final UserSigninReq signinReq;
+  final UserSigninReq user;
   EnterPasswordPage({
-    required this.signinReq,
+    required this.user,
     super.key
   });
 
@@ -85,10 +85,10 @@ class EnterPasswordPage extends StatelessWidget {
       builder: (context) {
         return BasicReactiveButton(
           onPressed: (){
-            signinReq.password = _passwordCon.text;
+            user.password = _passwordCon.text;
             context.read<ButtonStateCubit>().execute(
               usecase: SigninUseCase(),
-              params: signinReq
+              params: user
             );
           },
           title: 'Continue'

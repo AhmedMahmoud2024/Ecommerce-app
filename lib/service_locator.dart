@@ -5,6 +5,8 @@ import 'package:get_it/get_it.dart';
 import 'data/data_sources/auth_firebase_service.dart';
 import 'data/repositories/auth_repository_impl.dart';
 import 'domain/repositories/auth/auth.dart';
+import 'domain/use_cases/get_user.dart';
+import 'domain/use_cases/is_logged_in.dart';
 import 'domain/use_cases/signin.dart';
 import 'domain/use_cases/signup.dart';
 
@@ -34,4 +36,10 @@ Future<void> initializeDependencies() async{
       SendPasswordResetEmailUseCase()
   );
 
+  sl.registerSingleton<IsLoggedInUseCase>(
+      IsLoggedInUseCase()
+  );
+  sl.registerSingleton<GetUserUseCase>(
+      GetUserUseCase()
+  );
 }

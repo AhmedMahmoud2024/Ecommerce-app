@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/helpers/navigator/app_navigator.dart';
-import '../../../../../data/models/user_signin_req.dart';
+import '../../../../../data/auth/models/user_signin_req.dart';
 import '../../enter_password/enter_password.dart';
 
 class SigninContinueButtonWidget extends StatelessWidget{

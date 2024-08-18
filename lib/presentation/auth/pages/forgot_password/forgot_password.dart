@@ -6,7 +6,7 @@ import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/helpers/navigator/app_navigator.dart';
 import '../../../../common/widgets/appbar/app_bar.dart';
 import '../../../../common/widgets/button/basic_reactive_button.dart';
-import '../../../../domain/use_cases/send_password_reset_email.dart';
+import '../../../../domain/auth/use_cases/send_password_reset_email.dart';
 import '../password_reset_email/password_reset_email.dart';
 
 class ForgotPasswordPage extends StatelessWidget {

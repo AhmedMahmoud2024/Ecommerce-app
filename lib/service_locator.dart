@@ -1,14 +1,15 @@
-import 'package:ecommerce_app/domain/use_cases/get_ages.dart';
-import 'package:ecommerce_app/domain/use_cases/send_password_reset_email.dart';
 import 'package:get_it/get_it.dart';
+import 'data/auth/data_sources/auth_firebase_service.dart';
+import 'data/auth/repositories/auth_repository_impl.dart';
+import 'domain/auth/repositories/auth/auth.dart';
+import 'domain/auth/use_cases/get_ages.dart';
+import 'domain/auth/use_cases/get_user.dart';
+import 'domain/auth/use_cases/is_logged_in.dart';
+import 'domain/auth/use_cases/send_password_reset_email.dart';
+import 'domain/auth/use_cases/signin.dart';
+import 'domain/auth/use_cases/signup.dart';
 
-import 'data/data_sources/auth_firebase_service.dart';
-import 'data/repositories/auth_repository_impl.dart';
-import 'domain/repositories/auth/auth.dart';
-import 'domain/use_cases/get_user.dart';
-import 'domain/use_cases/is_logged_in.dart';
-import 'domain/use_cases/signin.dart';
-import 'domain/use_cases/signup.dart';
+
 
 final sl=GetIt.instance ;
 

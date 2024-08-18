@@ -1,7 +1,8 @@
 import 'package:ecommerce_app/core/usecase/usecase.dart';
-import 'package:ecommerce_app/domain/repositories/auth/auth.dart';
 
-import '../../service_locator.dart';
+import '../../../service_locator.dart';
+import '../repositories/auth/auth.dart';
+
 
 class IsLoggedInUseCase implements UseCase<bool,dynamic>{
   @override

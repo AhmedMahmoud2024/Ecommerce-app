@@ -1,10 +1,8 @@
-import 'package:ecommerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:ecommerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../common/helpers/navigator/app_navigator.dart';
-import '../../../../../data/models/user_creation_req.dart';
+import '../../../../../data/auth/models/user_creation_req.dart';
 import '../../gender_and_age_selection/pages/gender_and_age_selection.dart';
 
 class SignUpContinueButtonWidget extends StatelessWidget{

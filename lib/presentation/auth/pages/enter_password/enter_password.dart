@@ -7,8 +7,8 @@ import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/helpers/navigator/app_navigator.dart';
 import '../../../../common/widgets/appbar/app_bar.dart';
 import '../../../../common/widgets/button/basic_reactive_button.dart';
-import '../../../../data/models/user_signin_req.dart';
-import '../../../../domain/use_cases/signin.dart';
+import '../../../../data/auth/models/user_signin_req.dart';
+import '../../../../domain/auth/use_cases/signin.dart';
 import '../forgot_password/forgot_password.dart';
 
 

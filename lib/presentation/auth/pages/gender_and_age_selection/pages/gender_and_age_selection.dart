@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/common/helpers/navigator/app_navigator.dart';
+import 'package:ecommerce_app/presentation/home/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -183,11 +185,12 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
               return BasicReactiveButton(
                   onPressed: (){
                     userCreationReq.gender = context.read<GenderSelectionCubit>().selectedIndex;
-                   userCreationReq.age = context.read<AgeSelectionCubit>().selectedAge;
+                //   userCreationReq.age = context.read<AgeSelectionCubit>().selectedAge;
                     context.read<ButtonStateCubit>().execute(
                         usecase: SignupUseCase(),
                         params: userCreationReq
                     );
+                    AppNavigator.push(context, const HomePage() ) ;
                   },
                   title: 'Finish'
               );

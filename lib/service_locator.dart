@@ -8,6 +8,7 @@ import 'domain/auth/use_cases/is_logged_in.dart';
 import 'domain/auth/use_cases/send_password_reset_email.dart';
 import 'domain/auth/use_cases/signin.dart';
 import 'domain/auth/use_cases/signup.dart';
+import 'domain/category/usecases/get_categories.dart';
 
 
 
@@ -42,5 +43,9 @@ Future<void> initializeDependencies() async{
   );
   sl.registerSingleton<GetUserUseCase>(
       GetUserUseCase()
+  );
+
+  sl.registerSingleton<GetCategoriesUseCase>(
+      GetCategoriesUseCase()
   );
 }

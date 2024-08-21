@@ -40,26 +40,28 @@ class Ages extends StatelessWidget{
   );
   }
 
-  Widget _ages(List<QueryDocumentSnapshot<Map<String, dynamic>>> ages){
-  return ListView.separated(
-     padding: const EdgeInsets.all(16),
-      itemBuilder: (context,index){
-       return GestureDetector(
-         onTap: (){
-           Navigator.pop(context);
-           context.read<AgeSelectionCubit>().selectedAge;
-         },
-         child: Text(
-           ages[index].data()['value'],
-           style: const TextStyle(
-               fontSize: 18
-           ),
-         ),
-       );
-      },
-      separatorBuilder:  (context,index) => const SizedBox(height: 20,),
-      itemCount: ages.length
-  );
+  Widget _ages(List<QueryDocumentSnapshot<Map<String, dynamic>>> ages) {
+    return ListView.separated(
+        padding: const EdgeInsets.all(16),
+        itemBuilder: (context,index) {
+          return GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+              context.read<AgeSelectionCubit>().selectAge(
+                ages[index].data()['value'],
+              );
+            },
+            child: Text(
+              ages[index].data()['value'],
+              style: const TextStyle(
+                  fontSize: 18
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (context,index) => const SizedBox(height: 20,),
+        itemCount: ages.length
+    );
   }
 
 }

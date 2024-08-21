@@ -79,10 +79,13 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService{
   Future<Either> getAges() async {
     try {
       var returnedData = await FirebaseFirestore.instance.collection('Ages').get();
+     print(returnedData.docs);
       return Right(
           returnedData.docs
+
       );
     } catch (e) {
+      print(e.toString());
       return const Left(
           'Please try again'
       );

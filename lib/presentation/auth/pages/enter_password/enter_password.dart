@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/presentation/auth/pages/signup/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/helpers/navigator/app_navigator.dart';
@@ -9,13 +9,14 @@ import '../../../../common/widgets/appbar/app_bar.dart';
 import '../../../../common/widgets/button/basic_reactive_button.dart';
 import '../../../../data/auth/models/user_signin_req.dart';
 import '../../../../domain/auth/use_cases/signin.dart';
+import '../../../home/pages/home.dart';
 import '../forgot_password/forgot_password.dart';
 
 
 class EnterPasswordPage extends StatelessWidget {
-  final UserSigninReq user;
+  final UserSigninReq signinReq;
   EnterPasswordPage({
-    required this.user,
+    required this.signinReq,
     super.key
   });
 
@@ -27,8 +28,8 @@ class EnterPasswordPage extends StatelessWidget {
       appBar: const BasicAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 40
+            horizontal: 16,
+            vertical: 40
         ),
         child: BlocProvider(
           create: (context) => ButtonStateCubit(),
@@ -40,7 +41,7 @@ class EnterPasswordPage extends StatelessWidget {
               }
 
               if (state is ButtonSuccessState) {
-                AppNavigator.pushAndRemove(context, const SignupPage());/// HomePage
+                AppNavigator.pushAndRemove(context, const HomePage());
               }
             },
             child: Column(
@@ -65,8 +66,8 @@ class EnterPasswordPage extends StatelessWidget {
     return const Text(
       'Sign in',
       style: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.bold
+          fontSize: 32,
+          fontWeight: FontWeight.bold
       ),
     );
   }
@@ -75,45 +76,45 @@ class EnterPasswordPage extends StatelessWidget {
     return TextField(
       controller: _passwordCon,
       decoration: const InputDecoration(
-        hintText: 'Enter Password'
+          hintText: 'Enter Password'
       ),
     );
   }
 
   Widget _continueButton(BuildContext context) {
     return Builder(
-      builder: (context) {
-        return BasicReactiveButton(
-          onPressed: (){
-            user.password = _passwordCon.text;
-            context.read<ButtonStateCubit>().execute(
-              usecase: SigninUseCase(),
-              params: user
-            );
-          },
-          title: 'Continue'
-        );
-      }
+        builder: (context) {
+          return BasicReactiveButton(
+              onPressed: (){
+                signinReq.password = _passwordCon.text;
+                context.read<ButtonStateCubit>().execute(
+                    usecase: SigninUseCase(),
+                    params: signinReq
+                );
+              },
+              title: 'Continue'
+          );
+        }
     );
   }
 
   Widget _forgotPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
-        children:  [
-          const TextSpan(
-            text: "Forgot password? "
-          ),
-           TextSpan(
-            text: 'Reset',
-            recognizer:TapGestureRecognizer()..onTap = () {
-              AppNavigator.push(context, ForgotPasswordPage());
-            } ,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold
+          children:  [
+            const TextSpan(
+                text: "Forgot password? "
+            ),
+            TextSpan(
+                text: 'Reset',
+                recognizer:TapGestureRecognizer()..onTap = () {
+                  AppNavigator.push(context, ForgotPasswordPage());
+                } ,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold
+                )
             )
-          )
-        ]
+          ]
 
       ),
     );

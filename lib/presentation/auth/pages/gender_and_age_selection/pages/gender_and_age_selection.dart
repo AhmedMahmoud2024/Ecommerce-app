@@ -37,8 +37,9 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
         child: BlocListener<ButtonStateCubit,ButtonState>(
           listener: (context, state) {
             if (state is ButtonFailureState){
-              var snackbar = SnackBar(content: Text(state.errorMessage),behavior: SnackBarBehavior.floating,);
-              ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        //    print(state.errorMessage);
+             var snackbar = SnackBar(content: Text(state.errorMessage),behavior: SnackBarBehavior.floating,);
+             ScaffoldMessenger.of(context).showSnackBar(snackbar);
             }
           },
           child: Column(
@@ -185,12 +186,12 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
               return BasicReactiveButton(
                   onPressed: (){
                     userCreationReq.gender = context.read<GenderSelectionCubit>().selectedIndex;
-                //   userCreationReq.age = context.read<AgeSelectionCubit>().selectedAge;
+                  userCreationReq.age = context.read<AgeSelectionCubit>().selectedAge;
                     context.read<ButtonStateCubit>().execute(
                         usecase: SignupUseCase(),
                         params: userCreationReq
                     );
-                    AppNavigator.push(context, const HomePage() ) ;
+                  // AppNavigator.push(context, const HomePage() ) ;
                   },
                   title: 'Finish'
               );

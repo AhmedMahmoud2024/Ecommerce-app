@@ -1,38 +1,96 @@
-
-import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/continue_button.dart';
-import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/create_account_widget.dart';
-import 'package:ecommerce_app/presentation/auth/pages/signin/widgets/email_field_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/sign_in_text_widget.dart';
+import '../../../../../common/helpers/navigator/app_navigator.dart';
+import '../../../../../common/widgets/appbar/app_bar.dart';
+import '../../../../../common/widgets/button/basic_app_button.dart';
+import '../../../../../data/auth/models/user_signin_req.dart';
+import '../../enter_password/enter_password.dart';
+import '../../signup/pages/signup.dart';
 
-class SigninPage extends StatelessWidget{
-   const SigninPage({super.key});
+class SigninPage extends StatelessWidget {
+  SigninPage({super.key});
+
+  final TextEditingController _emailCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-  body: Padding(
-    padding: const EdgeInsets.symmetric(
-      horizontal: 16,
-      vertical: 80
-    ),
-    child: Column(
-      children: [
-       const SigninTextWidget(),
-       const SizedBox(height: 20,),
-        EmailFieldWidget(),
-        const SizedBox(height: 20,),
-        // PasswordFieldWidget(),
-        // SizedBox(height: 20,),
-        SigninContinueButtonWidget(),
-        const SizedBox(height: 20,),
-        const CreateAccountWidget()
-      ],
-    ),
-  ),
+    return Scaffold(
+      appBar: const BasicAppbar(hideBack: true,),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 40
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _siginText(context),
+            const SizedBox(height: 20,),
+            _emailField(context),
+            const SizedBox(height: 20,),
+            _continueButton(context),
+            const SizedBox(height: 20,),
+            _createAccount(context)
+          ],
+        ),
+      ),
     );
   }
 
+  Widget _siginText(BuildContext context) {
+    return const Text(
+      'Sign in',
+      style: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.bold
+      ),
+    );
+  }
+
+  Widget _emailField(BuildContext context) {
+    return TextField(
+      controller: _emailCon,
+      decoration: const InputDecoration(
+          hintText: 'Enter Email'
+      ),
+    );
+  }
+  Widget _continueButton(BuildContext context) {
+    return BasicAppButton(
+        onPressed: (){
+          AppNavigator.push(
+              context,
+              EnterPasswordPage(
+                signinReq: UserSigninReq(
+                  email: _emailCon.text,
+                ),
+              )
+          );
+        },
+        title: 'Continue'
+    );
+  }
+
+  Widget _createAccount(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+          children:  [
+            const TextSpan(
+                text: "Don't you have an account? "
+            ),
+            TextSpan(
+                text: 'Create one',
+                recognizer:TapGestureRecognizer()..onTap = () {
+                  AppNavigator.push(context,SignupPage());
+                } ,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold
+                )
+            )
+          ]
+
+      ),
+    );
+  }
 }

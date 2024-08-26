@@ -68,7 +68,7 @@ class Categories extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
          horizontal: 16
        ),
-        itemBuilder: (contetx,index) {
+        itemBuilder: (context,index) {
           return Column(
             children: [
               Container(

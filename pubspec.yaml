@@ -21,7 +21,11 @@ dependencies:
   flutter_bloc:
   dartz:
   get_it:
-
+  json_annotation: ^4.9.0
+  json_serializable: ^6.8.0
+  retrofit: ^3.0.1+1
+  retrofit_generator: ^4.0.3
+  build_runner: ^2.4.9
 dev_dependencies:
   flutter_test:
     sdk: flutter

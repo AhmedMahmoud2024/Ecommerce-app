@@ -6,12 +6,13 @@ part of 'color.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductColor _$ProductColorFromJson(Map<String, dynamic> json) => ProductColor(
+ProductColorModel _$ProductColorModelFromJson(Map<String, dynamic> json) =>
+    ProductColorModel(
       title: json['title'] as String,
       hexCode: json['hexCode'] as String,
     );
 
-Map<String, dynamic> _$ProductColorToJson(ProductColor instance) =>
+Map<String, dynamic> _$ProductColorModelToJson(ProductColorModel instance) =>
     <String, dynamic>{
       'title': instance.title,
       'hexCode': instance.hexCode,

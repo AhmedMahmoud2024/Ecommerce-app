@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/domain/product/entities/product.dart';
 import 'package:json_serializable/type_helper.dart';
 
 import 'color.dart';
@@ -48,4 +49,23 @@ class ProductModel{
   factory ProductModel.fromJson(Map<String,dynamic>json) => _$ProductModelFromJson(json) ;
   Map<String,dynamic>toJson() =>  _$ProductModelToJson(this) ;
 
+
+}
+
+extension ProductXModel on ProductModel{
+  ProductEntity toEntity(){
+    return ProductEntity(
+        categoryId: categoryId,
+        colors: colors.map((e) =>e.toEntity()).toList() as List<ProductEntity>,
+        createdDate: createdDate,
+        discountedPrice: discountedPrice,
+        gender: gender,
+        images: images,
+        price: price,
+        sizes: sizes,
+        productId: productId,
+        salesNumber: salesNumber,
+        title: title
+    );
+  }
 }

@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/data/product/repository/product.dart';
+import 'package:ecommerce_app/domain/product/repository/product.dart';
+import 'package:ecommerce_app/domain/product/usecases/get_top_selling.dart';
 import 'package:get_it/get_it.dart';
 import 'data/auth/data_sources/auth_firebase_service.dart';
 import 'data/auth/repositories/auth_repository_impl.dart';
@@ -59,4 +62,14 @@ Future<void> initializeDependencies() async{
   sl.registerSingleton<GetCategoriesUseCase>(
       GetCategoriesUseCase()
   );
+
+  sl.registerSingleton<ProductRepository>(
+      ProductRepositoryImpl()
+  );
+
+
+  sl.registerSingleton<GetTopSellingUseCase>(
+      GetTopSellingUseCase()
+  );
+
 }

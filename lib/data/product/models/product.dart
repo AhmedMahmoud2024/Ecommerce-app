@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/domain/product/entities/product.dart';
-import 'package:json_serializable/type_helper.dart';
-
 import 'color.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'product.g.dart';
@@ -24,10 +22,10 @@ class ProductModel{
   final List<ProductColorModel> colors ;
   @TimestampConverter()
   final DateTime createdDate ;
-  final double discountedPrice ;
+  final num discountedPrice ;
   final int gender ;
   final List<String> images ;
-  final double price ;
+  final num price ;
   final List<String> sizes ;
   final String productId ;
   final int salesNumber ;

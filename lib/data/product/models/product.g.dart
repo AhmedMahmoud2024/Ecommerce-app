@@ -13,11 +13,11 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
           .toList(),
       createdDate:
           const TimestampConverter().fromJson(json['createdDate'] as Timestamp),
-      discountedPrice: (json['discountedPrice'] as num).toDouble(),
+      discountedPrice: json['discountedPrice'] as num,
       gender: (json['gender'] as num).toInt(),
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
-      price: (json['price'] as num).toDouble(),
+      price: json['price'] as num,
       sizes: (json['sizes'] as List<dynamic>).map((e) => e as String).toList(),
       productId: json['productId'] as String,
       salesNumber: (json['salesNumber'] as num).toInt(),

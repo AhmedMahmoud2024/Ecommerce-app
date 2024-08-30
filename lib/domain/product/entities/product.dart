@@ -18,10 +18,10 @@ class ProductEntity{
   final List<ProductEntity> colors ;
  // @TimestampConverter()
   final DateTime createdDate ;
-  final double discountedPrice ;
+  final num discountedPrice ;
   final int gender ;
   final List<String> images ;
-  final double price ;
+  final num price ;
   final List<String> sizes ;
   final String productId ;
   final int salesNumber ;

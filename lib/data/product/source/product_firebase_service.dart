@@ -17,7 +17,7 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService{
   ).get();
   return Right(returnedData.docs.map((e) => e.data()).toList());
   }catch(e){
- return Left(
+ return const Left(
    'Please try again later'
  );
   }

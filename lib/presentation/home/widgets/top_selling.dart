@@ -1,12 +1,11 @@
-
-import 'package:ecommerce_app/presentation/home/bloc/top_selling_display_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import '../../../common/bloc/product/products_display_cubit.dart';
+import '../../../common/bloc/product/products_display_state.dart';
+import '../../../common/widgets/product/product_card.dart';
 import '../../../domain/product/entities/product.dart';
 import '../../../domain/product/usecases/get_top_selling.dart';
 import '../../../service_locator.dart';
-import '../bloc/top_selling_display_state.dart';
 
 class TopSelling extends StatelessWidget {
   const TopSelling({super.key});
@@ -14,8 +13,8 @@ class TopSelling extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TopSellingDisplayCubit()..displayProducts(),
-      child: BlocBuilder < TopSellingDisplayCubit, TopSellingDisplayState > (
+      create: (context) => ProductsDisplayCubit(useCase: sl<GetTopSellingUseCase>())..displayProducts(),
+      child: BlocBuilder < ProductsDisplayCubit, ProductsDisplayState > (
         builder: (context, state) {
           if (state is ProductsLoading) {
             return const CircularProgressIndicator();
@@ -37,16 +36,16 @@ class TopSelling extends StatelessWidget {
     );
   }
 
-   Widget _topSelling() {
+  Widget _topSelling() {
     return const Padding(
       padding: EdgeInsets.symmetric(
-         horizontal: 16,
-       ),
+        horizontal: 16,
+      ),
       child: Text(
         'Top Selling',
         style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 16
+            fontWeight: FontWeight.bold,
+            fontSize: 16
         ),
       ),
     );
@@ -56,17 +55,19 @@ class TopSelling extends StatelessWidget {
     return SizedBox(
       height: 300,
       child: ListView.separated(
-        shrinkWrap: true,
-        padding: const EdgeInsets.symmetric(
-         horizontal: 16,
-       ),
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context,index) {
-
-        },
-        separatorBuilder: (context,index) => const SizedBox(width: 10,),
-        itemCount: products.length
-        ),
+          shrinkWrap: true,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context,index) {
+            return ProductCard(
+              productEntity: products[index],
+            );
+          },
+          separatorBuilder: (context,index) => const SizedBox(width: 10,),
+          itemCount: products.length
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 
   import 'package:ecommerce_app/domain/product/usecases/get_new_in.dart';
+import 'package:ecommerce_app/domain/product/usecases/get_products_by_category_id.dart';
 import 'package:get_it/get_it.dart';
 
   import 'data/auth/data_sources/auth_firebase_service.dart';
@@ -94,6 +95,10 @@ import 'domain/product/usecases/get_top_selling.dart';
 
     sl.registerSingleton<GetNewInUseCase>(
         GetNewInUseCase()
+    );
+
+    sl.registerSingleton<GetTopProductsByCategoryIdUseCase>(
+        GetTopProductsByCategoryIdUseCase()
     );
 
   }
